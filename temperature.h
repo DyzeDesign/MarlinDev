@@ -31,6 +31,11 @@
 void tp_init();  //initialize the heating
 void manage_heater(); //it is critical that this is called periodically.
 
+// preheating functions
+bool is_preheating();
+void start_preheat_time(int extruder);
+void reset_preheat_time(int extruder);
+
 #if ENABLED(FILAMENT_SENSOR)
   // For converting raw Filament Width to milimeters
   float analog2widthFil();
@@ -101,6 +106,10 @@ FORCE_INLINE float degTargetBed() { return target_temperature_bed; }
 #endif
 
 FORCE_INLINE void setTargetHotend(const float& celsius, uint8_t extruder) {
+  if (celsius == 0.0f)
+    reset_preheat_time(extruder);
+  else if (target_temperature[extruder] == 0.0f)
+    start_preheat_time(extruder);
   target_temperature[extruder] = celsius;
   #if ENABLED(THERMAL_PROTECTION_HOTENDS)
     start_watching_heater(extruder);
