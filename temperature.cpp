@@ -1600,7 +1600,7 @@ ISR(TIMER0_COMPB_vect) {
         ++(consecutive_low_temperature_error[0]);
         if (consecutive_low_temperature_error[0] >= MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED)
     #endif
-		  min_temp_error(0);
+        min_temp_error(0);
       }
     #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
       else
