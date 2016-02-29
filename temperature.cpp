@@ -1603,7 +1603,7 @@ ISR(TIMER0_COMPB_vect) {
 		  min_temp_error(0);
       }
     #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
-		else
+      else
           consecutive_low_temperature_error[0] = 0;
     #endif
     #endif
