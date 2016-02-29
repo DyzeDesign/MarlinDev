@@ -1596,16 +1596,16 @@ ISR(TIMER0_COMPB_vect) {
       #endif
       if (current_temperature_raw[0] GE0 maxttemp_raw[0]) max_temp_error(0);
       if (minttemp_raw[0] GE0 current_temperature_raw[0] && !is_preheating(0) && target_temperature[0] > 0.0f) {
-        ++(consecutive_low_temperature_error[0]);
     #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
+        ++(consecutive_low_temperature_error[0]);
         if (consecutive_low_temperature_error[0] >= MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED)
     #endif
 		  min_temp_error(0);
+      }
     #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
 		else
           consecutive_low_temperature_error[0] = 0;
     #endif
-      }
     #endif
 
     #if HAS_TEMP_1 && EXTRUDERS > 1
@@ -1616,16 +1616,16 @@ ISR(TIMER0_COMPB_vect) {
       #endif
       if (current_temperature_raw[1] GE1 maxttemp_raw[1]) max_temp_error(1);
       if (minttemp_raw[1] GE1 current_temperature_raw[1] && !is_preheating(1) && target_temperature[1] > 0.0f) {
-        ++(consecutive_low_temperature_error[1]);
       #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
+        ++(consecutive_low_temperature_error[1]);
         if (consecutive_low_temperature_error[1] >= MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED)
       #endif
-           min_temp_error(1);
+          min_temp_error(1);
+      }
       #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
         else
           consecutive_low_temperature_error[1] = 0;
       #endif
-      }
     #endif // TEMP_SENSOR_1
 
     #if HAS_TEMP_2 && EXTRUDERS > 2
@@ -1636,16 +1636,16 @@ ISR(TIMER0_COMPB_vect) {
       #endif
       if (current_temperature_raw[2] GE2 maxttemp_raw[2]) max_temp_error(2);
       if (minttemp_raw[2] GE2 current_temperature_raw[2] && !is_preheating(2) && target_temperature[2] > 0.0f) {
-        ++(consecutive_low_temperature_error[2]);
       #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
+        ++(consecutive_low_temperature_error[2]);
         if (consecutive_low_temperature_error[2] >= MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED)
       #endif
-           min_temp_error(2);
+          min_temp_error(2);
+      }
       #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
         else
           consecutive_low_temperature_error[2] = 0;
       #endif
-      }
     #endif // TEMP_SENSOR_2
 
     #if HAS_TEMP_3 && EXTRUDERS > 3
@@ -1656,16 +1656,16 @@ ISR(TIMER0_COMPB_vect) {
       #endif
       if (current_temperature_raw[3] GE3 maxttemp_raw[3]) max_temp_error(3);
       if (minttemp_raw[3] GE3 current_temperature_raw[3] && !is_preheating(3) && target_temperature[3] > 0.0f) {
-        ++(consecutive_low_temperature_error[3]);
       #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
+        ++(consecutive_low_temperature_error[3]);
         if (consecutive_low_temperature_error[3] >= MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED)
       #endif
-           min_temp_error(3);
+          min_temp_error(3);
+      }
       #ifdef MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED
         else
           consecutive_low_temperature_error[3] = 0;
       #endif
-      }
     #endif // TEMP_SENSOR_3
 
     #if HAS_TEMP_BED
